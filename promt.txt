@@ -1,0 +1,483 @@
+You are a senior software architect and principal engineer.
+
+Your task is to design and implement a production-ready enterprise-grade Inventory & Commerce Management Platform using modern enterprise standards.
+
+This is NOT a tutorial project.
+This should be built like a real SaaS product used by companies.
+
+==================================================
+TECH STACK
+==================================================
+
+Backend:
+- Java 21
+- Spring Boot 3
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- PostgreSQL
+- JWT Authentication
+- Maven
+- Redis (optional)
+- Kafka (optional later)
+
+Frontend:
+- Angular 19
+- Tailwind CSS
+- RxJS
+- Angular Signals (optional)
+- Angular Material (optional)
+
+DevOps:
+- Docker
+- Docker Compose
+- GitHub Actions
+- Kubernetes (later phase)
+- Nginx
+
+Documentation:
+- Swagger/OpenAPI
+- README.md
+- Architecture diagrams
+- ER diagrams
+
+==================================================
+SYSTEM OVERVIEW
+==================================================
+
+Build a complete enterprise Inventory & Commerce platform including:
+
+- Authentication & Authorization
+- Product Management
+- Inventory Management
+- Warehouse Management
+- Purchase Management
+- Sales & Order Management
+- Customer Management
+- Cart & Wishlist
+- Payment System
+- Reporting & Dashboard
+- Notifications
+- Audit Logs
+- Admin Panel
+
+The system must follow:
+- Clean Architecture
+- SOLID Principles
+- Modular Monolith Architecture
+- Production-ready standards
+- Enterprise coding conventions
+
+==================================================
+ARCHITECTURE REQUIREMENTS
+==================================================
+
+Use a modular monolith architecture.
+
+Backend module structure:
+
+src/main/java/com/company/app
+
+- common/
+- config/
+- security/
+- exception/
+- audit/
+- auth/
+- user/
+- product/
+- category/
+- supplier/
+- inventory/
+- warehouse/
+- purchase/
+- sales/
+- order/
+- cart/
+- wishlist/
+- payment/
+- review/
+- report/
+- dashboard/
+- notification/
+
+Each module should contain:
+- controller
+- service
+- repository
+- entity
+- dto
+- mapper
+- validation
+- specification/filter
+
+==================================================
+AUTHENTICATION & SECURITY
+==================================================
+
+Implement:
+- JWT Authentication
+- Refresh Token
+- Role-based authorization
+- Password hashing
+- Email verification
+- Forgot password
+- Global security configuration
+- API protection
+
+Roles:
+- SUPER_ADMIN
+- ADMIN
+- WAREHOUSE_MANAGER
+- STAFF
+- CUSTOMER
+
+Use:
+- Spring Security
+- BCrypt
+- JWT filters/interceptors
+
+==================================================
+DATABASE DESIGN
+==================================================
+
+Use PostgreSQL.
+
+Implement proper relational design.
+
+Core entities:
+- User
+- Role
+- Product
+- Category
+- Brand
+- Supplier
+- Warehouse
+- InventoryTransaction
+- PurchaseOrder
+- SalesOrder
+- OrderItem
+- Cart
+- Wishlist
+- Payment
+- Shipment
+- Notification
+- Review
+- AuditLog
+
+Requirements:
+- UUID IDs
+- created_at
+- updated_at
+- deleted_at (soft delete)
+- auditing support
+- foreign key integrity
+- indexing
+- pagination-ready queries
+
+==================================================
+INVENTORY SYSTEM (MOST IMPORTANT)
+==================================================
+
+Implement a real inventory ledger system.
+
+DO NOT directly update stock blindly.
+
+Every inventory change must create immutable transaction records.
+
+Inventory transaction types:
+- STOCK_IN
+- STOCK_OUT
+- SALE
+- PURCHASE
+- RETURN
+- DAMAGE
+- TRANSFER
+- ADJUSTMENT
+
+Inventory logic:
+available_stock = total_stock - reserved_stock
+
+Support:
+- stock reservation
+- multi-warehouse
+- warehouse transfer
+- low stock threshold
+- stock reconciliation
+- inventory history
+
+==================================================
+PURCHASE FLOW
+==================================================
+
+Supplier
+→ Purchase Order
+→ Approval
+→ Receive Inventory
+→ Inventory Ledger Updated
+
+Support:
+- draft purchase orders
+- partial receiving
+- purchase history
+- invoice attachment
+
+==================================================
+ORDER & SALES FLOW
+==================================================
+
+Customer Order
+→ Payment
+→ Shipment
+→ Inventory Deduction
+→ Invoice
+
+Order statuses:
+- PENDING
+- PAID
+- PROCESSING
+- SHIPPED
+- DELIVERED
+- CANCELLED
+- RETURNED
+
+==================================================
+PRODUCT MANAGEMENT
+==================================================
+
+Features:
+- SKU generation
+- Barcode support
+- Product image upload
+- Product variants
+- Categories
+- Brands
+- Suppliers
+- Search/filter/sort
+- Pagination
+- CSV import/export
+
+==================================================
+DASHBOARD & REPORTING
+==================================================
+
+Implement dashboard APIs for:
+- total sales
+- monthly sales
+- daily profit
+- top products
+- low stock items
+- warehouse usage
+- inventory valuation
+
+Implement report export:
+- PDF
+- Excel
+
+==================================================
+NOTIFICATION SYSTEM
+==================================================
+
+Support:
+- email notifications
+- in-app notifications
+
+Triggers:
+- low stock alerts
+- order created
+- order shipped
+- payment failed
+
+==================================================
+AUDIT SYSTEM
+==================================================
+
+Track:
+- who changed data
+- before/after values
+- login history
+- inventory operations
+- admin operations
+
+==================================================
+API STANDARDS
+==================================================
+
+Use RESTful API conventions.
+
+Global response format:
+
+{
+  "success": true,
+  "message": "Product created successfully",
+  "data": {}
+}
+
+Implement:
+- global exception handling
+- validation handling
+- pagination response
+- filtering
+- sorting
+
+==================================================
+TESTING REQUIREMENTS
+==================================================
+
+Implement:
+- Unit Tests
+- Service Layer Tests
+- Repository Tests
+
+Use:
+- JUnit 5
+- Mockito
+
+==================================================
+FRONTEND REQUIREMENTS
+==================================================
+
+Angular structure:
+
+src/app
+
+- core/
+- shared/
+- layout/
+- features/
+
+Features:
+- auth/
+- dashboard/
+- inventory/
+- products/
+- warehouse/
+- orders/
+- reports/
+- admin/
+
+Requirements:
+- lazy loading
+- route guards
+- interceptors
+- reusable components
+- responsive UI
+- dashboard charts
+- role-based menus
+
+==================================================
+DEVOPS REQUIREMENTS
+==================================================
+
+Create:
+- Dockerfile
+- docker-compose.yml
+- GitHub Actions CI/CD pipeline
+
+Docker services:
+- backend
+- frontend
+- postgres
+- redis
+- nginx
+
+Later phase:
+- Kubernetes manifests
+- ingress
+- secrets
+- autoscaling
+
+==================================================
+README REQUIREMENTS
+==================================================
+
+Generate:
+- professional README
+- architecture diagram
+- ER diagram
+- setup instructions
+- API documentation
+- screenshots placeholders
+- deployment guide
+
+==================================================
+IMPLEMENTATION STRATEGY
+==================================================
+
+Build in phases.
+
+PHASE 1:
+- Auth
+- Product
+- Category
+- Supplier
+- Inventory core
+
+PHASE 2:
+- Warehouse
+- Purchase
+- Orders
+- Customer
+
+PHASE 3:
+- Cart
+- Wishlist
+- Review
+- Payment
+- Shipment
+
+PHASE 4:
+- Dashboard
+- Reports
+- Notifications
+- Audit Logs
+
+PHASE 5:
+- Docker
+- CI/CD
+- Kubernetes
+- Redis
+- Kafka
+
+==================================================
+CODING STANDARDS
+==================================================
+
+Requirements:
+- clean code
+- SOLID principles
+- DTO pattern
+- mapper layer
+- constructor injection
+- no field injection
+- proper logging
+- transactional boundaries
+- proper exception handling
+- reusable utilities
+- no duplicated code
+
+==================================================
+OUTPUT REQUIREMENTS
+==================================================
+
+Generate:
+1. Full project structure
+2. Database schema
+3. Backend implementation
+4. Frontend implementation
+5. Docker configuration
+6. API documentation
+7. Sample seed data
+8. CI/CD configuration
+9. README
+10. Step-by-step implementation plan
+
+The output should resemble a real enterprise production system suitable for:
+- portfolio
+- GitHub showcase
+- resume project
+- junior/mid backend engineer interviews
+- full stack engineer interviews
+
+Do not generate toy examples.
+Implement realistic enterprise-level business logic and architecture.
