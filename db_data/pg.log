@@ -13,3 +13,16 @@
 2026-05-19 22:25:04.763 +06 [27853] LOG:  checkpoint starting: shutdown immediate
 2026-05-19 22:25:04.852 +06 [27853] LOG:  checkpoint complete: wrote 973 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.040 s, sync=0.035 s, total=0.093 s; sync files=315, longest=0.004 s, average=0.001 s; distance=4560 kB, estimate=4560 kB; lsn=0/1967AB8, redo lsn=0/1967AB8
 2026-05-19 22:25:04.863 +06 [27852] LOG:  database system is shut down
+2026-05-19 22:26:32.962 +06 [30149] LOG:  starting PostgreSQL 16.13 (Ubuntu 16.13-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0, 64-bit
+2026-05-19 22:26:32.963 +06 [30149] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-05-19 22:26:32.969 +06 [30149] LOG:  listening on Unix socket "/home/ra/Music/inventory-management/db_data/.s.PGSQL.5432"
+2026-05-19 22:26:32.979 +06 [30152] LOG:  database system was shut down at 2026-05-19 22:25:04 +06
+2026-05-19 22:26:32.988 +06 [30149] LOG:  database system is ready to accept connections
+2026-05-19 22:26:37.144 +06 [30184] FATAL:  database "ra" does not exist
+2026-05-19 22:27:16.153 +06 [30149] LOG:  received fast shutdown request
+2026-05-19 22:27:16.165 +06 [30149] LOG:  aborting any active transactions
+2026-05-19 22:27:16.171 +06 [30149] LOG:  background worker "logical replication launcher" (PID 30155) exited with exit code 1
+2026-05-19 22:27:16.175 +06 [30150] LOG:  shutting down
+2026-05-19 22:27:16.179 +06 [30150] LOG:  checkpoint starting: shutdown immediate
+2026-05-19 22:27:16.208 +06 [30150] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.006 s, total=0.033 s; sync files=4, longest=0.004 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/1967B68, redo lsn=0/1967B68
+2026-05-19 22:27:16.215 +06 [30149] LOG:  database system is shut down
