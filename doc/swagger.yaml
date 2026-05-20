@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: Inventory & Commerce Management Platform API
+  version: 1.0.0
+  description: |
+    Production-ready Enterprise Inventory & Commerce Management Platform APIs.
+    All successful responses are returned in a standard global envelope format.
+servers:
+  - url: http://localhost:8080
+    description: Local Development Server
+
+paths:
+  /api/auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Register a new user
+      description: |
+        Creates a new user in the system. The first registered user is automatically assigned the SUPER_ADMIN role. Subsequent users receive the CUSTOMER role.
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '200':
+          description: User registered successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseAuthResponse'
+              example:
+                success: true
+                message: "User registered successfully"
+                data:
+                  accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  tokenType: "Bearer"
+                  email: "admin@company.com"
+                  firstName: "John"
+                  lastName: "Doe"
+                  role: "SUPER_ADMIN"
+        '400':
+          description: Bad Request - Invalid inputs or email already registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseVoid'
+              example:
+                success: false
+                message: "email: Invalid email format"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseVoid'
+              example:
+                success: false
+                message: "An unexpected error occurred"
+
+  /api/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: Authenticate user
+      description: |
+        Authenticates credentials and returns a JWT access token.
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseAuthResponse'
+              example:
+                success: true
+                message: "Login successful"
+                data:
+                  accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  tokenType: "Bearer"
+                  email: "customer@company.com"
+                  firstName: "Jane"
+                  lastName: "Smith"
+                  role: "CUSTOMER"
+        '400':
+          description: Bad Request - Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseVoid'
+              example:
+                success: false
+                message: "email: Invalid email format"
+        '401':
+          description: Unauthorized - Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseVoid'
+              example:
+                success: false
+                message: "Invalid email or password"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponseVoid'
+              example:
+                success: false
+                message: "An unexpected error occurred"
+
+components:
+  schemas:
+    RegisterRequest:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+        - password
+      properties:
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        email:
+          type: string
+          format: email
+          example: "john.doe@company.com"
+        password:
+          type: string
+          minLength: 8
+          example: "securedPassword123"
+
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: "john.doe@company.com"
+        password:
+          type: string
+          example: "securedPassword123"
+
+    AuthResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        tokenType:
+          type: string
+          example: "Bearer"
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        role:
+          type: string
+          enum: [SUPER_ADMIN, ADMIN, WAREHOUSE_MANAGER, STAFF, CUSTOMER]
+
+    ApiResponseAuthResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        data:
+          $ref: '#/components/schemas/AuthResponse'
+
+    ApiResponseVoid:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
