@@ -1,20 +1,23 @@
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/service/AuthService.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/repository/UserRepository.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/entity/Role.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/controller/AuthController.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/config/ApplicationConfig.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/security/JwtAuthFilter.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/config/SecurityConfig.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/dto/AuthResponse.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/controller/HelloController.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/dto/RegisterRequest.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/common/exception/BadRequestException.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/entity/User.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/InventoryApplication.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/common/entity/BaseEntity.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/config/OpenApiConfig.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/common/exception/ResourceNotFoundException.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/security/JwtUtil.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/common/exception/GlobalExceptionHandler.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/auth/dto/LoginRequest.java
-/home/ra/Music/inventory-management/backend/src/main/java/com/inventory/common/dto/ApiResponse.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/security/JwtAuthFilter.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/base/application/port/dto/ApiResponse.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/port/in/dto/request/LoginRequest.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/security/JwtUtil.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/port/in/AuthUseCase.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/domain/User.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/adapter/out/persistence/repository/UserJpaRepository.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/config/ApplicationConfig.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/config/SecurityConfig.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/exception/GlobalExceptionHandler.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/config/OpenApiConfig.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/port/out/UserPersistencePort.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/exception/ResourceNotFoundException.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/adapter/in/web/AuthController.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/exception/BadRequestException.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/adapter/out/persistence/entity/UserEntity.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/core/base/adapter/out/persistence/entity/BaseEntity.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/service/AuthService.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/port/in/dto/request/RegisterRequest.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/domain/Role.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/adapter/out/persistence/UserPersistenceAdapter.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/InventoryApplication.java
+/home/celloscope/Self Study/inventory-management/backend/src/main/java/com/inventory/auth/application/port/in/dto/response/AuthResponse.java

@@ -86,26 +86,6 @@
           }
         }
       }
-    },
-    "/hello": {
-      "get": {
-        "tags": [
-          "hello-controller"
-        ],
-        "operationId": "hello",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
